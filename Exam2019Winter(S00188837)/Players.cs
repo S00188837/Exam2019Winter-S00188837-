@@ -33,7 +33,19 @@ namespace Exam2019Winter_S00188837_
         public int Age { get; set; }
 
 
-        
+        public Players(string name, string surname, PlayerType type, DateTime date, int age)
+        {
+            Name = name;
+            Surname = surname;
+            playerType = type;
+            PlayerDate = date;
+            Age = age;
+        }
+
+        public override string ToString()
+        {
+            return $"{Name} {Surname}({Age}) {playerType}";
+        }
 
     }
 }
