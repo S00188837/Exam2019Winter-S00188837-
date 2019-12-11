@@ -109,6 +109,7 @@ namespace Exam2019Winter_S00188837_
 
             if (selected != null)
             {
+            //
                 AllPlayers.Add(selected);
                 Selected--;
                 LeftLsb.ItemsSource = null;
