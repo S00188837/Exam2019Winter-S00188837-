@@ -26,6 +26,7 @@ namespace Exam2019Winter_S00188837_
         ObservableCollection<Players> FilteredPlayers;
 
         Random rng = new Random();
+        int Selected = 0;
 
 
         public MainWindow()
@@ -87,9 +88,10 @@ namespace Exam2019Winter_S00188837_
         {
             Players selected = LeftLsb.SelectedItem as Players;
 
-            if (selected != null)
+            if (selected != null && Selected != 11)
             {
                 SelectedPlayers.Add(selected);
+                Selected++;
                 LeftLsb.ItemsSource = null;
                 LeftLsb.ItemsSource = SelectedPlayers;
 
@@ -97,6 +99,8 @@ namespace Exam2019Winter_S00188837_
                 LeftLsb.ItemsSource = null;
                 LeftLsb.ItemsSource = AllPlayers;
             }
+
+            _spaces.Text = Selected.ToString();
         }
 
         private void RemoveBtn_Click(object sender, RoutedEventArgs e)
@@ -106,6 +110,7 @@ namespace Exam2019Winter_S00188837_
             if (selected != null)
             {
                 AllPlayers.Add(selected);
+                Selected--;
                 LeftLsb.ItemsSource = null;
                 LeftLsb.ItemsSource = SelectedPlayers;
 
@@ -113,6 +118,9 @@ namespace Exam2019Winter_S00188837_
                 LeftLsb.ItemsSource = null;
                 LeftLsb.ItemsSource = AllPlayers;
             }
+            _spaces.Text = Selected.ToString();
         }
+
+       
     }
 }

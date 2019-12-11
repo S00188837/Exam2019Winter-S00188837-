@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Exam2019Winter_S00188837_
 {
-    class Players
+    class Players : IComparable
     {
 
         public enum PlayerType
@@ -44,7 +44,11 @@ namespace Exam2019Winter_S00188837_
             return $"{Name} {Surname}({PlayerDate.ToShortDateString()}) {playerType}";
         }
 
-        
+        public int CompareTo(object obj)
+        {
+            Players that = obj as Players;
 
+            return this.Name.CompareTo(that.Name);
+        }
     }
 }
