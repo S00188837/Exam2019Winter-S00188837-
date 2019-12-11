@@ -19,33 +19,32 @@ namespace Exam2019Winter_S00188837_
 
         public static Players[] players = new Players[]
         {
-
-
-
-
+            
         };
 
         //properties
         public string Name { get; set; }
         public string Surname { get; set; }
         public PlayerType playerType { get; set; }
-        public DateTime PlayerDate { get; set; }
-        public int Age { get; set; }
+        private DateTime PlayerDate { get; set; }
+        private int Age { get; set; }
 
 
-        public Players(string name, string surname, PlayerType type, DateTime date, int age)
+
+        public Players(string name, string surname, DateTime date, PlayerType type)
         {
             Name = name;
             Surname = surname;
+            PlayerDate = date; 
             playerType = type;
-            PlayerDate = date;
-            Age = age;
         }
 
         public override string ToString()
         {
-            return $"{Name} {Surname}({Age}) {playerType}";
+            return $"{Name} {Surname}({PlayerDate.ToShortDateString()}) {playerType}";
         }
+
+        
 
     }
 }
